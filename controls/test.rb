@@ -20,4 +20,9 @@ control 'test' do
     its('stderr') { should eq "Test stderr_1\r\n" }
     its('exit_status') { should eq 1 }
   end
+  describe command("cmd /c #{path}\\..\\tests\\stderr_2.bat") do
+    its('stdout') { should eq '' }
+    its('stderr') { should eq "Test stderr_2\r\n" }
+    its('exit_status') { should eq 2 }
+  end
 end
